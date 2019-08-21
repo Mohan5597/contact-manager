@@ -7,8 +7,9 @@ const userController=require('../app/controllers/userController')
 
 const {authenticateUser}=require('../app/middlewares/authentication')
 
+router.get('/contacts', contactsController.list)
 
-router.get('/contacts',authenticateUser, contactsController.list)
+//router.get('/contacts',authenticateUser, contactsController.list)
 router.get('/contacts/:id',authenticateUser, contactsController.show)
 router.post('/contacts', authenticateUser,contactsController.create)
 router.put('/contacts/:id',authenticateUser, contactsController.update)
