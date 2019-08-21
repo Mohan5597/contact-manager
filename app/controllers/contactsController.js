@@ -1,7 +1,7 @@
 const Contact = require('../models/contact')
 
 module.exports.list=(req,res) =>{
-    Contact.find({userId:req.user._id}).populate('category')
+    Contact.find().populate('category')
     .then((contacts) =>{
         res.json(contacts)
     })
@@ -28,7 +28,6 @@ module.exports.show=(req,res) =>{
 module.exports.create=(req,res) =>{
     const data=req.body
     const contact=new Contact({name:data.name,email:data.email,mobile:data.mobile,website:data.website})
-    contact.userId=req.user._id
     contact.save()
     .then((contact) =>{
         res.json(contact)

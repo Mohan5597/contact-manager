@@ -11,7 +11,7 @@ router.get('/contacts', contactsController.list)
 
 //router.get('/contacts',authenticateUser, contactsController.list)
 router.get('/contacts/:id',authenticateUser, contactsController.show)
-router.post('/contacts', authenticateUser,contactsController.create)
+router.post('/contacts',contactsController.create)
 router.put('/contacts/:id',authenticateUser, contactsController.update)
 router.delete('/contacts/:id',authenticateUser, contactsController.destroy)
 
