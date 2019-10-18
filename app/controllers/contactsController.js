@@ -1,7 +1,7 @@
 const Contact = require('../models/contact')
 
 module.exports.list=(req,res) =>{
-    Contact.find().populate('category')
+    Contact.find({userId:req.user._id}).populate('category')
     .then((contacts) =>{
         res.json(contacts)
     })
@@ -12,7 +12,7 @@ module.exports.show=(req,res) =>{
     Contact.findOne({
         _id:id,
         userId:req.user._id
-    })
+    }).populate('category')
     .then(contact =>{
         if(contact){
             res.json(contact)
@@ -27,7 +27,8 @@ module.exports.show=(req,res) =>{
 
 module.exports.create=(req,res) =>{
     const data=req.body
-    const contact=new Contact({name:data.name,email:data.email,mobile:data.mobile,website:data.website})
+    const contact=new Contact({name:data.name,email:data.email,mobile:data.mobile,website:data.website,category:data.category})
+    contact.userId=req.user._id
     contact.save()
     .then((contact) =>{
         res.json(contact)
@@ -61,6 +62,7 @@ module.exports.destroy=(req,res) => {
     Contact.findOneAndDelete({
         _id:id,
         userId:req.user._id})
+    
           .then((contact) =>{
               if(contact){
                   res.json(contact)

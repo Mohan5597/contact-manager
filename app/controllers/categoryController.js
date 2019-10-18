@@ -1,7 +1,7 @@
 const Category=require('../models/category')
 
 module.exports.list=(req,res) =>{
-    Category.find({userId:req.user._id})
+    Category.find()//{userId:req.user._id})
     .then((category) =>{
         res.json(category)
     })
@@ -9,9 +9,9 @@ module.exports.list=(req,res) =>{
 
 module.exports.show=(req,res) =>{
     const id=req.params.id
-    Category.findOne({
-        _id:id,
-        userId:req.user._id})
+     Category.findOne()//{
+    //     _id:id,
+    //     userId:req.user._id})
     .then(category =>{
         if(category){
             res.json(category)
@@ -27,7 +27,7 @@ module.exports.show=(req,res) =>{
 module.exports.create=(req,res) =>{
     const data=req.body
     const category=new Category(data)
-    category.userId=req.user._id
+    //category.userId=req.user._id
     category.save()
     .then((category) =>{
         res.json(category)
@@ -59,7 +59,8 @@ module.exports.destroy=(req,res) => {
     const id=req.params.id
     Category.findOneAndDelete({
         _id:id,
-        userId:req.user._id})
+        // userId:req.user._id
+    })
           .then((category) =>{
               if(category){
                   res.json(category)

@@ -14,6 +14,7 @@ const contactSchema=new Schema({
     },
     mobile:{
         type:Number,
+        minlength:10,
         required:true
     },
     website:{

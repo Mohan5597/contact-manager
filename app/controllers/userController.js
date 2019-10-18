@@ -53,5 +53,19 @@ module.exports.destroy=(req,res) =>{
       })
 }
 
+module.exports.update=(req,res) =>{
+   
+    // const user = req.user 
+    const user = req.user 
+    const { username } = req.body 
+    User.findOneAndUpdate({ _id: user._id}, {$set: { username}}, { new: true })
+        .then(user =>{
+            res.send(user)
+        })
+        .catch(err =>{
+            res.send(err)
+        })
+    }
+
 
 
