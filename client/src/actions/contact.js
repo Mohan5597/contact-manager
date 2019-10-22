@@ -22,6 +22,25 @@ export const startListContact=() =>{
     }
 }
 
+export const showContact=(id) =>{
+    return {
+        type:'SHOW_CONTACT',
+        payload:id
+    }
+}
+
+export const startShowContact=(id) =>{
+    return(dispatch)=>{
+        
+            axios.get(`http://localhost:3001/contacts/${id}`,{
+                headers:{'x-auth':localStorage.getItem('userAuth')}
+            })
+            .then(response =>{
+              dispatch(showContact(response.data))
+            })
+    }
+}
+
 export const removeContact=(id) =>{
     return {
         type:"REMOVE_CONTACT",
@@ -35,7 +54,7 @@ export const startRemoveContact=(id) =>{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
               .then(response =>{
-                  dispatch(removeContact(id))
+                  dispatch(removeContact(response.data))
               })
     }
 }

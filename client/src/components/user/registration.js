@@ -35,11 +35,13 @@ class Register extends React.Component{
 
         axios.post('http://localhost:3001/users/register', formData)
             .then(response => {
+               
                 if (response.data.errors) {
                     alert(response.data.message)
                 } else {
                     this.props.dispatch(registerUser(response.data))
-                    if(_.isEmpty(this.props.errors.message)){
+                    if(_.isEmpty(response.data.errors)){
+                       
                         this.props.history.push('/users/login')
                     }
                 }

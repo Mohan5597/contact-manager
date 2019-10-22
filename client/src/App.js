@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter,Link,Route,Switch} from 'react-router-dom'
 
 import './App.css';
-import NewContact from './components/contacts/form';
+import NewContact from './components/contacts/new';
 import ContactList from './components/contacts/list'
 import Register from './components/user/registration'
 import Login from './components/user/login'
@@ -12,16 +12,22 @@ import TopNav from './components/topNav/topNav'
 import ShowContact from './components/contacts/show';
 import EditContact from './components/contacts/edit';
 import profileModal from './components/user/profileModal';
+import Example from './components/slide/example'
+
+
 
 
 function App() {
   return (
     <BrowserRouter>
+   
      <div>
       
       <ul>
        
       <TopNav/>
+      <Example/>
+      
      
       </ul>
 

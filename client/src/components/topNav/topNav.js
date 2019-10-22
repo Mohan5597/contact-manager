@@ -2,14 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import _ from 'lodash'
+import Example from '../slide/example'
 
 
 function TopNav(props)
 {
   
     return (
+      
         <nav className="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-4">
-        <Link className="navbar-brand" to="/">Contacts-App</Link>
+          
+        <Link className="navbar-brand" to="#"><b>CONTACT-MANAGER</b></Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -19,10 +22,10 @@ function TopNav(props)
                 !_.isEmpty(localStorage.getItem('userAuth'))?(
                   <div className="collapse navbar-collapse" id="navbarNavDropdown">
                       <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="#">Home <span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item active">
-                        <Link className="nav-link" to="/contacts">Contacts <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/users/contactlist">Contacts <span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item active">
                         <Link className="nav-link" to="/users/profile">Profile <span className="sr-only">(current)</span></Link>
@@ -45,11 +48,16 @@ function TopNav(props)
                     <li className="nav-item active">
                       <Link className="nav-link" to="/users/login">Login <span className="sr-only">(current)</span></Link>
                     </li>
+                   
+
+                    
                   </div>
                 )
               }
           </ul>
+         
         </div>
+     
       </nav>
     )
 }

@@ -5,7 +5,9 @@ const router = require('./config/routes')
 const path = require('path')
 const cors=require('cors')
 
-const port = process.env.PORT || 3001
+// process.env.PORT ||
+const port = 3001
+console.log(port)
 
 const app=express()
 app.use(cors())
@@ -17,6 +19,6 @@ app.use('/', router)
 
 
 
-    app.listen(port,()=>{
+app.listen(port,()=>{
     console.log('listening on port', port)
 })
