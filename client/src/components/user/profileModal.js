@@ -58,7 +58,7 @@ class ProfileModal extends React.Component {
                                 </div>
                             </div>
                            
-                            <input className="btn btn-primary" type='submit' /><span><Link to='/users/profile' className="btn btn-dark">Cancel</Link></span>
+                            <input className="btn btn-primary" type='submit' /> <span><Link to='/users/profile' className="btn btn-dark">Cancel</Link></span>
 
                             {/* <input className="btn btn-primary" type="submit" value='Add' /> */}
                         </form>

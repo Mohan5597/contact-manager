@@ -2,13 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import _ from 'lodash'
-import Example from '../slide/example'
+import Slider from '../slide/sliders'
+
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PeopleIcon from '@material-ui/icons/People';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 
 function TopNav(props)
 {
   
     return (
+      <div>
       
         <nav className="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-4">
           
@@ -22,19 +28,16 @@ function TopNav(props)
                 !_.isEmpty(localStorage.getItem('userAuth'))?(
                   <div className="collapse navbar-collapse" id="navbarNavDropdown">
                       <li className="nav-item active">
-                        <Link className="nav-link" to="#">Home <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="#"><HomeIcon/> <span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item active">
-                        <Link className="nav-link" to="/users/contactlist">Contacts <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/users/contactlist"><PeopleIcon/>Contacts <span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item active">
-                        <Link className="nav-link" to="/users/profile">Profile <span className="sr-only">(current)</span></Link>
-                      </li>
+                        <Link className="nav-link" to="/users/profile"><AccountCircleIcon/>Profile<span className="sr-only">(current)</span></Link>
+                      </li> 
                       <li className="nav-item active">
-                        <Link className="nav-link" to="/users/contactlist">List<span className="sr-only">(current)</span></Link>
-                      </li>
-                      <li className="nav-item active">
-                        <Link className="nav-link" to="/users/newcontact">Add<span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/users/newcontact"><PersonAddIcon/>New<span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item active">
                         <Link className="nav-link" to="/users/logout">Logout <span className="sr-only">(current)</span></Link>
@@ -59,6 +62,9 @@ function TopNav(props)
         </div>
      
       </nav>
+      {  !_.isEmpty(localStorage.getItem('userAuth'))?(<div></div>):(<div><Slider/></div>)}
+      
+      </div>
     )
 }
 

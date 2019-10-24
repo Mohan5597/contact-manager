@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -19,4 +19,13 @@
 
 .App-link {
   color: #09d3ac;
+} */
+
+/* ../src//components/image/tes.jpg */
+
+.main-page {
+  background-image:url('../src//components/image/tes.jpg');
+  height: 300vh;
+  background-size: cover;
+  
 }

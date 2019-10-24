@@ -59,27 +59,27 @@ class Register extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>Register Now</h2>
+            <div className="container col-md-4">
+                  <h2>Register Now</h2>
                 {/* {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
                 {this.state.successMsg && <p>{this.state.successMsg}</p>} */}
                 
                 <form onSubmit={this.handleSubmit}>
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">User Name  </label>
-                    <div className="col-sm-3">
+                    <label className="col-md-3 col-form-label">Name  </label>
+                    <div className="col-md-6">
                         <input type='text' className="form-control" placeholder='User name' value={this.state.username} onChange={this.handleChange} name='username'/>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">Email  </label>
-                    <div className="col-sm-3">
+                    <label className="col-md-3 col-form-label">Email  </label>
+                    <div className="col-md-6">
                         <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='email'/>
                     </div>
                     </div>
                     <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">Password  </label>
-                    <div className="col-sm-3">
+                    <label className="col-sm-3 col-form-label">Password  </label>
+                    <div className="col-sm-6">
                         <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password'/>
                     </div>
                     </div>

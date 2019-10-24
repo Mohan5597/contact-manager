@@ -5,7 +5,7 @@ const contactsReducer=(state=[],action) =>{
         case "SHOW_CONTACT":
             return [action.payload]
         case "REMOVE_CONTACT":
-            return {}
+            return state.filter(contact => contact._id!==action.payload)
         default:
             return [...state]
     }
