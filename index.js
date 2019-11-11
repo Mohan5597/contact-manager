@@ -17,7 +17,7 @@ app.use(express.json())
 app.use('/', router)
 
 
-const port = process.env.PORT
+const port = process.env.PORT ||3001
 app.use(express.static(path.join(__dirname,"client/build")))
 app.get("*",(req,res)=>{
 res.sendFile(path.join(__dirname + "/client/build/index.html"))
