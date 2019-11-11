@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/axios'
 import {Link} from 'react-router-dom'
 
 class ContactForm extends React.Component{
@@ -18,7 +18,7 @@ class ContactForm extends React.Component{
         this.handleCategoryChange=this.handleCategoryChange.bind(this)
     }
     componentDidMount(){
-        axios.get('http://localhost:3001/categories',{
+        axios.get('/categories',{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
              .then(response=>{

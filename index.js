@@ -6,8 +6,8 @@ const path = require('path')
 const cors=require('cors')
 
 // process.env.PORT ||
-const port = 3001
-console.log(port)
+//const port = 3001
+//console.log(port)
 
 const app=express()
 app.use(cors())
@@ -15,6 +15,14 @@ app.use(cors())
 
 app.use(express.json())
 app.use('/', router)
+
+
+const port = 3001 || process.env.PORT
+app.use(express.static(path.join(__dirname,"client/build")))
+app.get("*",(req,res)=>{
+res.sendFile(path.join(__dirname + "/client/build/index.html"))
+})
+
 
 
 

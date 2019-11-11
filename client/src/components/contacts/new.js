@@ -1,6 +1,6 @@
 import React from 'react' 
 import ContactForm from './form'
-import axios from 'axios'
+import axios from '../../config/axios'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 class NewContact extends React.Component {
@@ -10,7 +10,7 @@ class NewContact extends React.Component {
     }
 
     handleSubmit = (formData) => {
-        axios.post('http://localhost:3001/contacts',formData,{
+        axios.post('/contacts',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{

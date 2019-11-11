@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/axios'
 
 class Login extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class Login extends React.Component {
             password: this.state.password
         }
 
-        axios.post('http://localhost:3001/users/login', formData)
+        axios.post('/users/login', formData)
             .then((response) => {
                  console.log('resolve', response.data)
                 if (response.data==='invalid email/password') {

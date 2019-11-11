@@ -9,6 +9,8 @@ import PeopleIcon from '@material-ui/icons/People';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
+import '../../App.css'
+
 
 
 function TopNav(props)
@@ -23,7 +25,7 @@ function TopNav(props)
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <div className='main-page' className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
               {
                 !_.isEmpty(localStorage.getItem('userAuth'))?(
@@ -45,7 +47,7 @@ function TopNav(props)
                       </li>
                   </div>
                 ):(
-                  <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                  <div  className="collapse navbar-collapse" id="navbarNavDropdown">
                     <li className="nav-item active">
                       <Link className="nav-link" to="/users/register">Register <span className="sr-only">(current)</span></Link>
                     </li>

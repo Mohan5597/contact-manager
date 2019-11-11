@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 
 export const registerUser = (user) => {
     return {
@@ -16,7 +16,7 @@ export const setUser = (user) => {
 
 export const startSetUser = (user) => {
     return (dispatch) => {
-        axios.get('http://localhost:3001/users/profile', {
+        axios.get('/users/profile', {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
@@ -43,7 +43,7 @@ export const editUser=(user) =>{
 
 export const startEditUser=(formData) =>{
     return(dispatch) =>{
-        axios.put('http://localhost:3001/users/profile/edit',formData,{
+        axios.put('/users/profile/edit',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response=>{

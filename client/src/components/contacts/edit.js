@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/axios'
 import ContactForm from './form'
 
 class EditContact extends React.Component{
@@ -14,7 +14,7 @@ class EditContact extends React.Component{
 
     componentDidMount(){
         const id=this.props.match.params.id
-        axios.get(`http://localhost:3001/contacts/${id}`,{
+        axios.get(`/contacts/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
              .then(response =>{
@@ -25,11 +25,11 @@ class EditContact extends React.Component{
 
     handleSubmit(formData) {
         const id = this.props.match.params.id
-        axios.put(`http://localhost:3001/contacts/${id}`,formData,{
+        axios.put(`/contacts/${id}`,formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
-            console.log('adghja',response.data)
+            
             if ((response.data.message) || (response.data.name==="" )||(response.data.mobile===null)) {
                 alert("name/mobile/category required")
             } else {

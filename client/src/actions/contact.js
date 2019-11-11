@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 
 export const listContact=(contact) =>{
     return {
@@ -9,7 +9,7 @@ export const listContact=(contact) =>{
 
 export const startListContact=() =>{
     return(dispatch) =>{
-        axios.get("http://localhost:3001/contacts",{
+        axios.get("/contacts",{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
              .then(response =>{
@@ -32,7 +32,7 @@ export const showContact=(id) =>{
 export const startShowContact=(id) =>{
     return(dispatch)=>{
         
-            axios.get(`http://localhost:3001/contacts/${id}`,{
+            axios.get(`/contacts/${id}`,{
                 headers:{'x-auth':localStorage.getItem('userAuth')}
             })
             .then(response =>{
@@ -50,7 +50,7 @@ export const removeContact=(id) =>{
 
 export const startRemoveContact=(id) =>{
     return(dispatch) =>{
-        axios.delete(`http://localhost:3001/contacts/${id}`,{
+        axios.delete(`/contacts/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
               .then(response =>{

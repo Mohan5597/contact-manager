@@ -2,7 +2,7 @@ import React from 'react'
 import { registerUser } from '../../actions/user';
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import axios from 'axios'
+import axios from '../../config/axios'
 
 class Register extends React.Component{
     constructor(props){
@@ -33,7 +33,7 @@ class Register extends React.Component{
 
         }
 
-        axios.post('http://localhost:3001/users/register', formData)
+        axios.post('/users/register', formData)
             .then(response => {
                
                 if (response.data.errors) {
